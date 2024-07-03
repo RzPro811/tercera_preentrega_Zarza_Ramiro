@@ -1,0 +1,39 @@
+{% extends 'paginas/inicio.html'%}
+{% load static %}
+
+{% block titulo %}
+<h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Distribuidores</span></h1>
+{% endblock titulo %}
+
+{%block imagen%}
+<img class="profile-img" src="{% static 'assets/perfectio.png' %}" alt=""/>
+{%endblock imagen%}
+
+{% block informacion_adicional %}
+
+<table class= "table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Empresa</th>
+            <th>Repartidor</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in Distribuidores %}
+            <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.distribuidora}}</td>
+                <td>{{x.repartidor}} {{x.apellido}}</td>
+                <td>{{x.edad}} años</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'distForm' %}">Formulario</a>
+</div>
+
+{% endblock informacion_adicional %}
+
